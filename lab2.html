@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html>
- <head>
+   <head>
+      <style>
+         table {
+         font-family: arial, sans-serif;
+         border-collapse: collapse;
+         }
+         td, th {
+         border: 1px solid #000;
+         text-align: left;
+         padding: 8px;
+         }
+      </style>
+   </head>
+   <body>
+   </body>
+   <script>
+		function createTable(tid, c1, c2, c3,c4) {
+		    let table = document.createElement('table');
+		    table.innerHTML = `<tbody id='${tid}'>
+		    <tr>
+		    <th>${c1}</th> 
+		    <th>${c2}</th>
+		    <th>${c3}</th>
+		    <th>${c4}</th>
+		    </tr>
+		    </tbody>`
 
- </head>
- <body>
- </body>
- 
- <script>
- </script>
+		    document.body.append(table);
+		}
+
+		function fillTable() {
+		    for (let i = 0; i < students.length; ++i) {
+		        let str = document.createElement('tr')
+		        str.innerHTML = `<td>${students[i]["name"]}</td>
+		        <td>${students[i]["surname"]}</td>
+		        <td>${students[i]["age"]}</td>
+		        <td class= 'avgmark'>${students[i]["avg"]}</td>`;
+		        stud.append(str);
+		    }
+		}
+
+		function showSum() {
+		    let avgMarks = document.querySelectorAll('.avgmark');
+		    let sum = 0;
+		    for (let elem of avgMarks) {
+		        sum += +elem.innerHTML;
+		    };
+		    alert("Sum is: " + sum);
+		}
+
+		function addStudent(p1, p2, p3, p4) {
+		    students[students.length] = {
+		        name: p1,
+		        surname: p2,
+		        age: p3,
+		        avg: p4
+		    }
+		}
+
+		let students = []
+
+		addStudent("Si", "Czipin", 59, 10);
+		addStudent("Li", "Pipin", 519, 9.9);
+		addStudent("Mi", "Xiao", 0, -3);
+		createTable("stud", "Name", "Surname", "Age", "Average mark");
+		fillTable();
+		showSum();
+   </script>
 </html>

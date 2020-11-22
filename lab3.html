@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         table {
+         font-family: arial, sans-serif;
+         border-collapse: collapse;
+         }
+         td, th {
+         border: 1px solid #000;
+         text-align: left;
+         padding: 8px;
+         }
+      </style>
+   </head>
+   <body>
+   	<p>Имя: <input type="text" id="name" value="Pa"></p>
+	<p>Фамилия: <input type="text" id="surname" value="Shka"></p>
+	<p>Возраст: <input type="number" id="age" value="34"></p>
+	<p><Балл: <input type="number" id="avg" value="35"></p>
+	<button onclick="addStudentToTable()">Эдд</button>
+	<button onclick="showSum()">Шоу Сам</button>
+   </body>
+   <script>
+
+		function deleteStudentFromTable(thisTr)
+			{
+	     		 stud.deleteRow(thisTr.rowIndex);
+			}
+
+	   	function addStudentToTable() {
+						let tempStudent = {
+							"name": document.querySelector('#name').value,
+							"surname": document.querySelector('#surname').value,
+							"age": document.querySelector('#age').value,
+							"avg": document.querySelector('#avg').value
+						}
+						students.push(tempStudent);
+						let tempTr = document.createElement('tr')
+				        tempTr.innerHTML = `<td>${students[students.length - 1]["name"]}</td>
+				        <td>${students[students.length - 1]["surname"]}</td>
+				        <td>${students[students.length - 1]["age"]}</td>
+				        <td class= 'avgmark'>${students[students.length - 1]["avg"]}</td>
+				        <td><button onclick="deleteStudentFromTable(this.parentNode.parentNode)" >Дэлит Студент</button></td>`;
+				        stud.appendChild(tempTr);
+				    }
+
+		function createTable(tid, c1, c2, c3,c4) {
+		    let table = document.createElement('table');
+		    table.innerHTML = `<tbody id='${tid}'>
+		    <tr>
+		    <th>${c1}</th> 
+		    <th>${c2}</th>
+		    <th>${c3}</th>
+		    <th>${c4}</th>
+		    </tr>
+		    </tbody>`
+
+		    document.body.append(table);
+		}
+
+		function fillTable() {
+		    for (let i = 0; i < students.length; ++i) {
+		        let str = document.createElement('tr')
+		        str.innerHTML = `<td>${students[i]["name"]}</td>
+		        <td>${students[i]["surname"]}</td>
+		        <td>${students[i]["age"]}</td>
+		        <td class= 'avgmark'>${students[i]["avg"]}</td>
+		        <td><button onclick="deleteStudentFromTable(this.parentNode.parentNode)" >Дэлит Студент</button></td>`;
+		        stud.append(str);
+		    }
+		}
+
+		function showSum() {
+		    let avgMarks = document.querySelectorAll('.avgmark');
+		    let sum = 0;
+		    for (let elem of avgMarks) {
+		        sum += +elem.innerHTML;
+		    };
+		    alert("Sum is: " + sum);
+		}
+
+		function addStudent(p1, p2, p3, p4) {
+		    students[students.length] = {
+		        name: p1,
+		        surname: p2,
+		        age: p3,
+		        avg: p4
+		    }
+		}
+
+
+		let students = []
+
+		addStudent("Si", "Czipin", 59, 10);
+		addStudent("Li", "Pipin", 519, 9.9);
+		addStudent("Mi", "Xiao", 0, -3);
+		createTable("stud", "Name", "Surname", "Age", "Average mark");
+		fillTable();
+   </script>
+</html>

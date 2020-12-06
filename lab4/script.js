@@ -10,8 +10,8 @@ $('#addButton').click(function() {
     let tempStudent = {
         name: $('#name').val(),
         surname: $('#surname').val(),
-        age: $('#age').val(),
-        avg: $('#avg').val()
+        age: Number($('#age').val()),
+        avg: Number($('#avg').val())
     };
     students.push(tempStudent);
     $('#stud').append(

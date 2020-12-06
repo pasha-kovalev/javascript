@@ -1,8 +1,8 @@
 $.getJSON("students.json", function(data) {
     jQuery(data).each(function(i, item) {
         students.push(item);
-    });
-    return fillTable();
+    })
+    fillTable()
 });
 
 $('#addButton').click(function() {
@@ -41,7 +41,6 @@ $(document).on('click', '.delbut', function() {
     students.splice(rowNumber - 1, 1);
 
     $(this).closest('tr').remove();
-    return false;
 });
 
 $(document).on('click', '.editbut', function() {
@@ -60,7 +59,7 @@ $(document).on('click', '.editbut', function() {
 function createTable(tid, c1, c2, c3, c4) {
     $("body").append(
         `<table>
-	        	<tbody id='${tid}'>
+	        	    <tbody id='${tid}'>
 			    <tr>
 			    <th>${c1}</th> 
 			    <th>${c2}</th>
@@ -68,7 +67,7 @@ function createTable(tid, c1, c2, c3, c4) {
 			    <th>${c4}</th>
 			    </tr>
 			    </tbody>
-	    </table>`
+        </table>`
     );
 }
 
@@ -81,8 +80,8 @@ function fillTable() {
 			        <td>${students[i]["age"]}</td>
 			        <td class= 'avgmark'>${students[i]["avg"]}</td>
 			        <td><button class="delbut" >Дэлит Студент</button></td>
-                    <td><button class="editbut">Редактировать</button></td>
-	        </tr>`
+                    		<td><button class="editbut">Редактировать</button></td>
+	     </tr>`
         )
     });
 

@@ -1,8 +1,8 @@
 $.getJSON("students.json", function(data) {
     jQuery(data).each(function(i, item) {
         students.push(item);
-    })
-    return fillTable()
+    });
+    return fillTable();
 });
 
 $('#addButton').click(function() {

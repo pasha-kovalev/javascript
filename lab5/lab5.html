@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script src="app.js"></script>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+            }
+            td,
+            th {
+                border: 1px solid #000;
+                text-align: left;
+                padding: 8px;
+            }
+        </style>
+    </head>
+    <body ng-controller="firstCtrl">
+        <form>
+            <p>
+                Имя:
+                <input type="text" ng-model="name" />
+            </p>
+            <p>
+                Фамилия:
+                <input type="text" ng-model="surname" />
+            </p>
+            <p>
+                Возраст:
+                <input type="number" ng-model="age" />
+            </p>
+            <p>
+                Балл:
+                <input type="number" ng-model="avg" />
+            </p>
+            <button ng-click="addNew()">Эдд</button>
+            <button ng-click="sumBut()">Шоу Сам</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Возраст</th>
+                <th>Балл</th>
+            </tr>
+            <tr ng-repeat="student in students">
+                <td>{{student.name}}</td>
+                <td>{{student.surname}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.avg}}</td>
+                <td>
+                    <button ng-click="delBut($index)">Дэлит Студент</button>
+                </td>
+                <td>
+                    <button ng-click="editBut($index)">Редактировать</button>
+                </td>
+            </tr>
+        </table>
+
+        <p>Средний балл всех студентов: <text ng-model="allAvg" />{{x}}</p>
+    </body>
+</html>

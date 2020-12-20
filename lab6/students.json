@@ -1,0 +1,20 @@
+[
+	{
+		"name": "COVID",
+		"surname": "19",
+		"age": 1,
+		"avg": -3
+	},
+	{
+		"name": "Barhatnie",
+		"surname": "Ruchki",
+		"age": 0,
+		"avg": 10
+	},
+	{
+		"name": "Mladshiy",
+		"surname": "Leytenant",
+		"age": 21,
+		"avg": 7
+	}
+]

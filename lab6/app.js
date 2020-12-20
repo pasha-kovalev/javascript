@@ -36,7 +36,7 @@ class StudentsTable extends React.Component {
                      this.setState({
                      students: studentsData,
                      sum: avgAllF()
-                 });
+                     });
                  });
             
         // studentsData = [
@@ -59,6 +59,10 @@ class StudentsTable extends React.Component {
         //                   		"avg": 7
         //                   	}
         //                   ];
+	// 	this.setState({
+        //             students: studentsData,
+        //             sum: avgAllF()
+        //         });
 	}
 
     addNew(event) {
